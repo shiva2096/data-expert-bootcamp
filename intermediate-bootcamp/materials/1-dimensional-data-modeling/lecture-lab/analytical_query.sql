@@ -1,3 +1,11 @@
+ 
+ 
+select player_name, (UNNEST(seasons)::season_stats).* from players 
+where current_season = 2022;
+
+ 
+ 
+ 
  SELECT player_name,
         (seasons[cardinality(seasons)]::season_stats).pts/
          CASE WHEN (seasons[1]::season_stats).pts = 0 THEN 1
